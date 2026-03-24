@@ -52,6 +52,13 @@ environment:
   DNS2: "1.1.1.1"
 ```
 
+To filter all IPv6 (AAAA) queries, set the `FILTER_AAAA` environment variable to any value:
+
+```yaml
+environment:
+  FILTER_AAAA: "true"
+```
+
 You can extend the default configuration with a volume that mounts a
 directory containing `*.conf` configuration files:
 

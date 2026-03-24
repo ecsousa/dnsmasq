@@ -38,6 +38,10 @@ if [ ! -f "$conf" ]; then
   if [ -n "${LOG_QUERIES:-}" ]; then
     sed -i -e "s/^#log-queries/log-queries/g" "$conf"
   fi
+  
+  if [ -n "${FILTER_AAAA:-}" ]; then
+    sed -i -e "s/^#filter-aaaa/filter-aaaa/g" "$conf"
+  fi
 
 fi
 
