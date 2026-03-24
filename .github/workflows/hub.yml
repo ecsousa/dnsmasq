@@ -16,8 +16,8 @@ jobs:
       name: Docker Hub Description
       uses: peter-evans/dockerhub-description@v5
       with:
-        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        username: ${{ vars.DOCKER_USERNAME || secrets.DOCKER_USERNAME || secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
-        repository: ${{ secrets.DOCKERHUB_REPO }}
-        short-description: ${{ github.event.repository.description }}
+        repository: ${{ vars.DOCK_REPO || secrets.DOCK_REPO || secrets.DOCKHUB_REPO || 'dockurr/dnsmasq' }}
+        short-description: ${{ github.event.repository.description || 'Docker container for dnsmasq' }}
         readme-filepath: ./readme.md
